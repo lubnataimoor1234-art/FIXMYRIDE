@@ -1,17 +1,29 @@
-import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+
+import React from "react";
+import { NavigationContainer } from "@react-navigation/native";
+import { SafeAreaProvider } from "react-native-safe-area-context";
+import Main from "./src/navigation/Main.navigation";
+import MainDrawer from "./src/navigation/MainDrawer";
+import { StatusBar } from "react-native";
+import Colors from "./src/utils/colors.utils";
 
 const App = () => {
   return (
-    <View style={styles.container}>
-      <Text style={styles.text}>FixMyRide App is Running 🚗</Text>
-    </View>
+    <SafeAreaProvider>
+      <NavigationContainer>
+        <StatusBar
+          backgroundColor={Colors.PRIMARY}
+          barStyle="light-content"
+        />
+       
+          <Main />
+      </NavigationContainer>
+    </SafeAreaProvider>
   );
 };
 
-const styles = StyleSheet.create({
-  container: { flex: 1, justifyContent: 'center', alignItems: 'center' },
-  text: { fontSize: 20, fontWeight: 'bold' },
-});
-
 export default App;
+
+
+
+
